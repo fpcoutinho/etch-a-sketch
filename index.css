@@ -64,7 +64,7 @@ a:hover {
     color: var(--secondary-light-hover);
 }
 
-button{
+.botao-tema{
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -85,21 +85,60 @@ main{
     margin-top: 40px;
 }
 
-.grid{
+.grid-pequeno, .grid-medio, .grid-grande {
     border-radius: 10px 10px 0px 0px;
     border: solid var(--echt-a-sketch);
     border-width: 100px 100px 6px 100px;
-    width: 800px;
-    height: 500px;
+    width: 806px;
+    height: 526px;
     background-color: #fff;
+    display: inline-grid;
+    grid-template-columns: repeat(25, 0fr);
+    overflow: hidden;
+}
+
+.grid-pequeno{
+    grid-template-columns: repeat(13, 0fr);
+}
+
+.grid-medio{
+    grid-template-columns: repeat(25, 0fr);
+}
+
+.grid-grande{
+    grid-template-columns: repeat(46, 0fr);
+}
+
+.grid-pequeno .square{
+    height: 63.3px;
+    width: 59.47px;
+    border: 1px solid gray;
+}
+
+.grid-medio .square{
+    height: 32.6px;
+    width: 29.73px;
+    border: 1px solid gray;
+}
+
+.grid-grande .square {
+    height: 15.1px;
+    width: 15px;
+    border: 1px solid gray;
 }
 
 .controles {
     margin: auto;
     border-radius: 0 0 10px 10px;
     background-color: var(--echt-a-sketch);
-    width: 1000px;
+    width: 1006px;
     height: 100px;
     max-height: 100px;
     margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-dark);
+    font-size: larger;
+
 }
