@@ -1,3 +1,8 @@
+const TAMANHO_PADRAO = 16;
+const TAMANHO_MEDIO = 32;
+const TAMANHO_GRANDE = 64;
+let size = TAMANHO_PADRAO;
+
 document.querySelector(".botao-tema").addEventListener("click", switchTheme);
 function switchTheme() {
     const element = document.body;
@@ -15,38 +20,37 @@ function switchTheme() {
 
 
 
-document.getElementById("botao-pequeno").addEventListener("click", () => createGrid("pequeno"));
-document.getElementById("botao-medio").addEventListener("click", () => createGrid("medio"));
-document.getElementById("botao-grande").addEventListener("click", () => createGrid("grande"));
+document.getElementById("botao-pequeno").addEventListener("click", () => criaGrid("pequeno"));
+document.getElementById("botao-medio").addEventListener("click", () => criaGrid("medio"));
+document.getElementById("botao-grande").addEventListener("click", () => criaGrid("grande"));
 document.getElementById("botao-reset").addEventListener("click", () => resetGrid());
 
-function createGrid(tamanho) {
+function criaGrid(tamanho) {
     //definindo o tamanho do grid
-    let size = 40*30;
     switch(tamanho) {
         case "pequeno":
-            size = 13*8;
+            size = TAMANHO_PADRAO;
             break;
         case "medio":
-            size = 18*20 + 15;
+            size = TAMANHO_MEDIO;
             break;
         case "grande":
-            size = 46*30;
+            size = TAMANHO_GRANDE;
             break;
     }
     
     //definindo o grid
     let grid = document.getElementById("grid");
     grid.innerHTML = "";
-    grid.style.gridTemplateColumns = `repeat(${Math.sqrt(size)}, 1fr)`;
-    grid.style.gridTemplateRows = `repeat(${Math.sqrt(size)}, 1fr)`;
+    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
     grid.classList.remove("grid-pequeno", "grid-medio", "grid-grande");
     grid.classList.add(`grid-${tamanho}`);
 
     //populando o grid
     let square = document.createElement("div");
     square.classList.add("square");
-    for (let i = 0; i < size; i++) {
+    for (let i = 0; i < size*size; i++) {
         grid.appendChild(square.cloneNode(true));
     }
     setSquares();
@@ -77,4 +81,6 @@ function randomColor() {
 }
 
 //grid padrão
-window.onload = () => createGrid("medio");
+window.onload = () => {
+    criaGrid('pequeno');
+}

@@ -82,7 +82,6 @@ main{
     padding: 20px;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
 }
 
 .grid-pequeno, .grid-medio, .grid-grande {
@@ -95,18 +94,6 @@ main{
     display: inline-grid;
     grid-template-columns: repeat(25, 0fr);
     overflow: hidden;
-}
-
-.grid-pequeno{
-    grid-template-columns: repeat(13, 0fr);
-}
-
-.grid-medio{
-    grid-template-columns: repeat(25, 0fr);
-}
-
-.grid-grande{
-    grid-template-columns: repeat(46, 0fr);
 }
 
 .grid-pequeno .square{
@@ -128,7 +115,6 @@ main{
 }
 
 .controles {
-    margin: auto;
     border-radius: 0 0 10px 10px;
     background-color: var(--echt-a-sketch);
     width: 1006px;
@@ -141,4 +127,30 @@ main{
     color: var(--secondary-dark);
     font-size: larger;
 
+}
+
+.controles p{
+    margin: 0 20px 0 0;
+    padding: 0;
+    font-size: 26px;
+}
+
+.botao-controles {
+    background-color: var(--primary-light);
+    border: 4px var(--primary-light) solid;
+    border-radius: 30%;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--echt-a-sketch);
+    padding: 10px;
+    width:100px;
+    gap: 2px;
+}
+
+#botao-reset{
+    border-radius: 0px;
+    color: var(--primary-dark);
+    background-color: white;
+    margin-left: 100px;
 }
