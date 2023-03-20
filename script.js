@@ -5,17 +5,10 @@ let size = TAMANHO_PADRAO;
 
 document.querySelector(".botao-tema").addEventListener("click", switchTheme);
 function switchTheme() {
-    const element = document.body;
-    const icone = document.getElementById("icone-tema");
-
-    if (icone.innerHTML == "dark_mode") {
-        this.style.color = "var(--secondary-dark)";
-        this.innerHTML = `<span class="material-icons" id="icone-tema">light_mode</span>light mode`;
-    } else {
-        this.style.color = "var(--secondary-light)";
-        this.innerHTML = `<span class="material-icons" id="icone-tema">dark_mode</span>dark mode`;
-    }
-    element.classList.toggle("dark-mode");
+    const root = document.documentElement;
+    const newTheme = root.className === 'dark' ? 'light' : 'dark';
+    root.className = newTheme;
+    this.innerHTML = `<span class="material-icons" id="icone-tema">${newTheme}_mode</span>${newTheme} mode`;
 }
 
 
@@ -83,4 +76,5 @@ function randomColor() {
 //grid padrão
 window.onload = () => {
     criaGrid('pequeno');
+    switchTheme();
 }
