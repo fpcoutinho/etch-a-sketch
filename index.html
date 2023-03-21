@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="icon" type="image/x-icon" href="recursos/favicon.ico">
-        <title>Etch a Sktech!</title>
-    </head>
 
-    <body>
-        <header>
-            <div class="header-logo">
-                <img src="recursos/logo.png" alt="Logo from: Flaticon - Draw icons, created by Freepik" width="40px"/>
-                Etch a Sketch!
-            </div>
-            <div class="top-nav">
-                <ul>
-                    <li><button type="button" class="botao-tema"><span class="material-icons" id="icone-tema">dark_mode</span>dark mode</button></li>
-                </ul>
-            </div>
-        </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="recursos/favicon.ico">
+    <title>Etch a Sktech!</title>
+</head>
 
-        <main>
+<body>
+    <header>
+        <div class="header-logo">
+            <img src="recursos/logo.png" alt="Logo from: Flaticon - Draw icons, created by Freepik" width="40px" />
+            Etch a Sketch!
+        </div>
+        <div class="top-nav">
+            <ul>
+                <li><button type="button" class="botao-tema"><span class="material-icons"
+                            id="icone-tema">dark_mode</span>dark mode</button></li>
+            </ul>
+        </div>
+    </header>
 
-            <div class="grid-medio" id="grid"></div>
+    <main>
 
-            <div class="controles">
-                <p>Tamanho do Grid:</p>
-                <ul>
-                    <li><button type="button" class="botao-controles" id="botao-pequeno">Pequeno</button></li>
-                    <li><button type="button" class="botao-controles" id="botao-medio">Médio</button></li>
-                    <li><button type="button" class="botao-controles" id="botao-grande">Grande</button></li>
-                </ul>
-                <button type="button" class="botao-controles" id="botao-reset">Limpar</button>
-            </div>
+        <div class="grid"></div>
 
-        </main>
-        
-        <footer>
-            <a href="https://github.com/fpcoutinho/etch-a-sketch">Copyright © The Odin Project 2023 by fpcoutinho <i class="fa fa-github"></i></a>
-        </footer>
-        <script src="script.js"></script>
-    </body>
+        <div class="controles">
+            <p>Tamanho do Grid:</p>
+            <ul>
+                <li><button type="button" class="botao-controles" id="botao-pequeno">Pequeno</button></li>
+                <li><button type="button" class="botao-controles" id="botao-medio">Médio</button></li>
+                <li><button type="button" class="botao-controles" id="botao-grande">Grande</button></li>
+            </ul>
+            <button type="button" class="botao-controles" id="botao-reset">Limpar</button>
+        </div>
+
+    </main>
+
+    <footer>
+        <a href="https://github.com/fpcoutinho/etch-a-sketch">Copyright © The Odin Project 2023 by fpcoutinho <i
+                class="fa fa-github"></i></a>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
 </html>

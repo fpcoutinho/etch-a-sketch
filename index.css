@@ -85,40 +85,35 @@ main{
     align-items: center;
 }
 
-.grid-pequeno, .grid-medio, .grid-grande {
+.grid {
     border-radius: 10px 10px 0px 0px;
     border: solid var(--echt-a-sketch);
     border-width: 100px 100px 6px 100px;
-    width: 806px;
-    height: 526px;
+    width: 800px;
+    height: 450px;
     background-color: #fff;
-    display: inline-grid;
-    grid-template-columns: repeat(25, 0fr);
-    overflow: hidden;
+    display: grid;
 }
 
-.grid-pequeno .square{
-    height: 63.3px;
-    width: 59.47px;
-    border: 1px solid gray;
+.pequeno{
+    grid-template-rows: repeat(9, 50px);
+    grid-template-columns: repeat(16, 50px);
 }
 
-.grid-medio .square{
-    height: 32.6px;
-    width: 29.73px;
-    border: 1px solid gray;
+.medio{
+    grid-template-rows: repeat(18, 25px);
+    grid-template-columns: repeat(32, 25px);
 }
 
-.grid-grande .square {
-    height: 15.1px;
-    width: 15px;
-    border: 1px solid gray;
+.grande{
+    grid-template-rows: repeat(36, 12.5px);
+    grid-template-columns: repeat(64, 12.5px);
 }
 
 .controles {
     border-radius: 0 0 10px 10px;
     background-color: var(--echt-a-sketch);
-    width: 1006px;
+    width: 1000px;
     height: 100px;
     max-height: 100px;
     margin-top: 0px;

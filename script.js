@@ -1,17 +1,11 @@
-const TAMANHO_PADRAO = 16;
-const TAMANHO_MEDIO = 32;
-const TAMANHO_GRANDE = 64;
-let size = TAMANHO_PADRAO;
-
 document.querySelector(".botao-tema").addEventListener("click", switchTheme);
 function switchTheme() {
     const root = document.documentElement;
-    const newTheme = root.className === 'dark' ? 'light' : 'dark';
+    const newTheme = root.className === 'light' ? 'dark' : 'light';
+    const botao = newTheme === 'dark' ? 'light' : 'dark';
     root.className = newTheme;
-    this.innerHTML = `<span class="material-icons" id="icone-tema">${newTheme}_mode</span>${newTheme} mode`;
+    this.innerHTML = `<span class="material-icons" id="icone-tema">${botao}_mode</span>${botao} mode`;
 }
-
-
 
 document.getElementById("botao-pequeno").addEventListener("click", () => criaGrid("pequeno"));
 document.getElementById("botao-medio").addEventListener("click", () => criaGrid("medio"));
@@ -20,30 +14,35 @@ document.getElementById("botao-reset").addEventListener("click", () => resetGrid
 
 function criaGrid(tamanho) {
     //definindo o tamanho do grid
+    let colunas = 16;
+    let linhas = 9;
+    let grid = document.querySelector(".grid");
+    grid.innerHTML = "";
+    grid.classList.remove("pequeno", "medio", "grande");
     switch(tamanho) {
         case "pequeno":
-            size = TAMANHO_PADRAO;
+            grid.classList.add("pequeno");
+            colunas = 16;
+            linhas = 9;
             break;
         case "medio":
-            size = TAMANHO_MEDIO;
+            grid.classList.add("medio");
+            colunas = 32;
+            linhas = 18;
             break;
         case "grande":
-            size = TAMANHO_GRANDE;
+            grid.classList.add("grande");
+            colunas = 64;
+            linhas = 36;
             break;
     }
-    
-    //definindo o grid
-    let grid = document.getElementById("grid");
-    grid.innerHTML = "";
-    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
-    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
-    grid.classList.remove("grid-pequeno", "grid-medio", "grid-grande");
-    grid.classList.add(`grid-${tamanho}`);
+
+    console.log(colunas, linhas);
 
     //populando o grid
     let square = document.createElement("div");
     square.classList.add("square");
-    for (let i = 0; i < size*size; i++) {
+    for (let i = 0; i < linhas*colunas; i++) {
         grid.appendChild(square.cloneNode(true));
     }
     setSquares();
@@ -53,7 +52,7 @@ function criaGrid(tamanho) {
 function resetGrid(){
     const squares = document.querySelectorAll(".square");
     squares.forEach((square) => {
-        square.style.backgroundColor = "var(--primary)";
+        square.style.backgroundColor = 'white';
     });
 }
 
@@ -61,7 +60,6 @@ function resetGrid(){
 //função de colorir os quadrados rainbow
 function setSquares(){
     const squares = document.querySelectorAll(".square");
-    console.log(squares);
     squares.forEach((square) => {
         square.addEventListener("mouseover", () => {
             square.style.backgroundColor = randomColor();
@@ -73,8 +71,6 @@ function randomColor() {
     return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
 }
 
-//grid padrão
 window.onload = () => {
-    criaGrid('pequeno');
     switchTheme();
 }
